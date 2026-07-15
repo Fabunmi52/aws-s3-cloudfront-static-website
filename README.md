@@ -1,4 +1,4 @@
-# AWS Secure Static Website Hosting with Amazon S3, CloudFront & Route 53
+# Static Website Hosting with Amazon S3, CloudFront & Route 53
 
 Host a secure, scalable, and cost-effective static website on AWS using Amazon S3, CloudFront, Route 53, and AWS Certificate Manager (ACM).
 
