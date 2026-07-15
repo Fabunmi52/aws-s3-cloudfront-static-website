@@ -45,7 +45,6 @@ flowchart TB
 - [Screenshots](#screenshots)
 - [Author](#author)
 
----
 
 ## AWS Services Used
 
@@ -55,8 +54,6 @@ flowchart TB
 - AWS Certificate Manager (ACM)
 - IAM
 - Origin Access Control (OAC)
-
----
 
 ## Architecture Workflow
 
