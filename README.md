@@ -16,7 +16,19 @@ This architecture is ideal for portfolios, landing pages, business websites, and
 
 # Architecture
 
-<img src="https://mermaid.ink/img/pako:eNpVj8EKwjAMhl8l5KxDh9t6FvToZSAIDzK8tZ2hW9eSDoXSu5vOisI_OfnyffmSDpYmI-fC46C9Wc5qNNoB5m7wIn3vN2a_Gf86FInE14Tst9oXyD_jT88pSTG-94Ym6-b328H8G_P_j_rDOfH3tH1IeNToFas8w139IByZkGfABytK8CWhTFAgD6HCHgXOkMscT6O3p0hD_gAVDFAp?type=png" alt="AWS CloudFront and S3 Static Website Architecture" width="450" />
+```mermaid
+flowchart TB
+    A((Internet))
+    B[Route 53]
+    C[CloudFront CDN]
+    D[Origin Access Control]
+    E[(S3 Static Website)]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
 
 ## Table of Contents
 
@@ -48,11 +60,28 @@ This architecture is ideal for portfolios, landing pages, business websites, and
 
 ## Architecture Workflow
 
-<img src="https://mermaid.ink/img/pako:eNpVj8EKwjAMhl8l5KxDh9t6FvToZSAIDzK8tZ2hW9eSDoXSu5vOisI_OfnyffmSDpYmI-fC46C9Wc5qNNoB5m7wIn3vN2a_Gf86FInE14Tst9oXyD_jT88pSTG-94Ym6-b328H8G_P_j_rDOfH3tH1IeNToFas8w139IByZkGfABytK8CWhTFAgD6HCHgXOkMscT6O3p0hD_gAVDFAp?type=png" alt="Cloudfront S3 Flowchart" />
-    
-## Prerequisites
+```mermaid
+flowchart TD
 
-Before beginning this project, ensure you have:
+    U([User])
+
+    R53[Amazon Route 53]
+
+    CF[Amazon CloudFront<br/>Global Edge Locations]
+
+    OAC[Origin Access Control]
+
+    S3[(Amazon S3 Bucket<br/>Static Website)]
+
+    U -->|DNS Request| R53
+    R53 -->|Route Request| CF
+    CF -->|Secure Access| OAC
+    OAC -->|Fetch Website Files| S3
+
+    S3 -. Cached Content .-> CF
+    CF -->|Fast Content Delivery| U
+```
+
 
 - An AWS Account
 - A registered domain name (Namecheap, GoDaddy, etc.)
