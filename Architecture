@@ -1,5 +1,3 @@
-# Architecture
-
 ```mermaid
 flowchart TB
     A((Internet))
