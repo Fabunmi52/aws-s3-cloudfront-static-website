@@ -7,7 +7,7 @@ This section documents the exact steps I followed to deploy my static website on
 
 The first step was securing my domain with HTTPS.
 
-I switched to the **US East (N. Virginia)** region because CloudFront requires SSL certificates to be created there.
+I switched to the **US East** region because CloudFront requires SSL certificates to be created there.
 
 Using **AWS Certificate Manager (ACM)**, I requested a public SSL certificate for my domain:
 
@@ -26,12 +26,12 @@ AWS generated four **Name Server (NS)** records, which I copied and replaced in 
 
 ## Step 3 - Create the Amazon S3 Buckets
 
-To support both my root domain and the **www** subdomain, I created two Amazon S3 buckets.
+To support both my subdomain, I created Amazon S3 buckets.
 
 ### Primary Bucket
 
 ```text
-edwardfabunmi.online
+edukare.edwardfabunmi.online
 ```
 
 This bucket stores all of my website files, including HTML, CSS, JavaScript, and images.
@@ -66,7 +66,7 @@ I configured it with the following settings:
 | Origin | Amazon S3 Bucket (`edwardfabunmi.online`) |
 | Viewer Protocol Policy | Redirect HTTP to HTTPS |
 | Default Root Object | `index.html` |
-| Alternate Domain Name | `edwardfabunmi.online` |
+| Alternate Domain Name | `edukare.edwardfabunmi.online` |
 | Origin Access Control | Enabled |
 | SSL Certificate | AWS Certificate Manager (ACM) |
 
@@ -92,7 +92,7 @@ With CloudFront deployed, I configured my DNS records in Amazon Route 53.
 
 I created:
 
-- An **A (Alias)** record pointing `edwardfabunmi.online` to the CloudFront distribution.
+- An **A (Alias)** record pointing `edukare.edwardfabunmi.online` to the CloudFront distribution.
 
 This connected my custom domain to CloudFront.
 
@@ -108,3 +108,7 @@ Finally, I verified that everything was working correctly by confirming that:
 - The website is accessible from different devices and networks.
 
 With these checks completed successfully, my static website was securely deployed and available globally through AWS's content delivery network.
+
+## Live Demo
+
+**EduKare:** https://edukare.edwardfabunmi.online
