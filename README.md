@@ -10,77 +10,41 @@ The website is hosted in an Amazon S3 bucket and distributed globally through Am
 
 This architecture is ideal for portfolios, landing pages, business websites, and documentation sites because it is secure, highly available, scalable, and cost-effective.
 
-**Live Website:** https://www.edwardfabunmi.online
+## Live Demo
 
+**EduKare:** https://edukare.edwardfabunmi.online
 
-
-# Architecture
-
-```mermaid
-flowchart TB
-    A((Internet))
-    B[Route 53]
-    C[CloudFront CDN]
-    D[Origin Access Control]
-    E[(S3 Static Website)]
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-```
 
 ## Table of Contents
 
-- [Project Overview](#-project-overview)
-- [Architecture](#️-architecture)
-- [AWS Services Used](#aws-services-used)
-- [Architecture Workflow](#architecture-workflow)
-- [Prerequisites](#prerequisites)
-- [Deployment Guide](#deployment-guide)
-- [Security Features](#security-features)
-- [Estimated Monthly Cost](#estimated-monthly-cost)
-- [Lessons Learned](#lessons-learned)
-- [Future Improvements](#future-improvements)
-- [Screenshots](#screenshots)
-- [Author](#author)
+* [Project overview](Doc/01-project-overview.md)
+- [Architecture](Doc/02-architecture.md)
+- [AWS Services Used](Doc/03-aws-services-used.md)
+- [Architecture Workflow](Doc/04-architecture-workflow.md)
+- [Prerequisites](Doc/05-prerequisites.md)
+- [Deployment Guide](Doc/06-deployment-guide.md)
+- [Security Features](Doc/07-security-features.md)
+- [Estimated Monthly Cost](Doc/08-estimated-monthly-cost.md)
+- [Lessons Learned](Doc/09-lessons-learned.md)
+- [Future Improvements](Doc/10-future-improvements.md)
+- [Author](Doc/12-author.md)
 
+## Project Objective
 
-## AWS Services Used
+The objective of this project is to design and deploy a secure, scalable, and cost-effective static website hosting solution on AWS using Amazon S3, Amazon CloudFront, Amazon Route 53, and AWS Certificate Manager (ACM).
 
-- Amazon S3
-- Amazon CloudFront
-- Amazon Route 53
-- AWS Certificate Manager (ACM)
-- IAM
-- Origin Access Control (OAC)
+The project demonstrates how to leverage AWS managed services to deliver a highly available website with HTTPS encryption, low latency through global content delivery, secure access using Origin Access Control (OAC), and custom domain integration while following AWS security best practices.
 
-## Architecture Workflow
+## Project Deliverables
 
-```mermaid
-flowchart TD
+Upon completion of this project, the following deliverables were achieved:
 
-    U([User])
-
-    R53[Amazon Route 53]
-
-    CF[Amazon CloudFront<br/>Global Edge Locations]
-
-    OAC[Origin Access Control]
-
-    S3[(Amazon S3 Bucket<br/>Static Website)]
-
-    U -->|DNS Request| R53
-    R53 -->|Route Request| CF
-    CF -->|Secure Access| OAC
-    OAC -->|Fetch Website Files| S3
-
-    S3 -. Cached Content .-> CF
-    CF -->|Fast Content Delivery| U
-```
-
-
-- An AWS Account
-- A registered domain name (Namecheap, GoDaddy, etc.)
-- Basic understanding of AWS services
-- Static website files (HTML, CSS, JavaScript, Images)
+- Successfully deployed a static website on Amazon S3.
+- Configured Amazon CloudFront to deliver content through global edge locations.
+- Implemented HTTPS using AWS Certificate Manager (ACM).
+- Connected a custom domain using Amazon Route 53.
+- Secured the S3 bucket with Origin Access Control (OAC) to prevent direct public access.
+- Configured DNS records for both the root domain.
+- Improved website performance through CloudFront content caching.
+- Documented the complete deployment process with architecture diagrams and implementation steps.
+- Created a production-style AWS project suitable for portfolio and learning purposes.
